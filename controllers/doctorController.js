@@ -2,6 +2,16 @@ const db = require("../db");
 const Doctor = require("../models/Doctor");
 const MedicalPlan = require("../models/MedicalPlan");
 
+function verifyString(value = "") {
+  if (value === null) {
+    return "";
+  } else if (typeof value !== "string") {
+    return value.toString();
+  } else {
+    return value;
+  }
+}
+
 module.exports = {
   getDoctors: function(req, res) {
     try {
@@ -15,7 +25,7 @@ module.exports = {
         }
       });
     } catch (error) {
-      res.json({ message: erorr });
+      res.json({ message: error });
     }
   },
 
@@ -62,6 +72,31 @@ module.exports = {
       });
     } catch (error) {
       res.json({ message: error });
+    }
+  },
+
+  getDoctorsSearch: function(req, res) {
+    try {
+      const { specialty = "", city = "", medicalPlan = "" } = req.query;
+
+      let doctorsSearchModel = new Array(Doctor);
+      let sql = `CALL DoctorsSearch("${verifyString(specialty)}", "${verifyString(city)}", 
+                                    "${verifyString(medicalPlan)}");`;
+
+      db.connection.query(sql, (error, results) => {
+        if (error) {
+          throw error;
+        } else {
+          results[0].forEach((element, index, arr) => {
+            doctorsSearchModel[index] = element;
+          });
+          console.log(req.params);
+          res.json({ doctorsSearchModel });
+        }
+      });
+    } catch (error) {
+      res.json({ error: error });
+      console.log(req.params);
     }
   }
 };

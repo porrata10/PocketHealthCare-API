@@ -7,6 +7,13 @@ const connection = mysql.createConnection({
   password: "manchester10_10",
   port: "3306",
   database: "PocketHealthCare"
+
+
+  // host: "db-mysql-nyc1-62413-do-user-6601111-0.db.ondigitalocean.com",
+  //  user: "doadmin",
+  //  password: "aqqarcux29jz7m9w",
+  //  port: "25060",
+  //  database: "RocketHealthCare"
 });
 
 connection.connect(err => {
