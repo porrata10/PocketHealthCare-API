@@ -18,8 +18,8 @@ router.get("/getDoctorInformation/:id", doctorController.getDoctorInformation);
 
 // Searches for the doctors based on filters
 router.get(
-  "/getDoctorsSearch/:DoctorsSpecialty?/:DoctorsCity?/:DoctorsMedicalPlan?",
-  doctorController.getDoctorsSearch
+  "/doctorSearch/:specialty?/:city?/:plan?",
+  doctorController.doctorSearch
 );
 
 module.exports = router;

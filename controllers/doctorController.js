@@ -75,13 +75,13 @@ module.exports = {
     }
   },
 
-  getDoctorsSearch: function(req, res) {
+  doctorSearch: function(req, res) {
     try {
-      const { specialty = "", city = "", medicalPlan = "" } = req.query;
+      const { specialty = "", city = "", plan = "" } = req.query;
 
       let doctorsSearchModel = new Array(Doctor);
       let sql = `CALL DoctorsSearch("${verifyString(specialty)}", "${verifyString(city)}", 
-                                    "${verifyString(medicalPlan)}");`;
+                                    "${verifyString(plan)}");`;
 
       db.connection.query(sql, (error, results) => {
         if (error) {
@@ -90,13 +90,11 @@ module.exports = {
           results[0].forEach((element, index, arr) => {
             doctorsSearchModel[index] = element;
           });
-          console.log(req.params);
           res.json({ doctorsSearchModel });
         }
       });
     } catch (error) {
       res.json({ error: error });
-      console.log(req.params);
     }
   }
 };
