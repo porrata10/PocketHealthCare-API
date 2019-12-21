@@ -19,13 +19,10 @@ router.get(
 // Select all medicines
 router.get("/getMedicines/", medicineController.getMedicines);
 
-// Select all information for a particular medicine
-router.get("/getMedicinesSearch", medicineController.getMedicinesSearch);
-
 // Searches for the medicine based on filters
 router.get(
-  "/getMedicinesSearch/:MedicalPlanName?/:DosageAmount?/:Medicine_Name?/:MedicineCategory?",
-  medicineController.getMedicinesSearch
+  "/medicineSearch/:plan?/:dose?/:med?/:cat?",
+  medicineController.medicineSearch
 );
 
 module.exports = router;

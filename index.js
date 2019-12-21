@@ -16,6 +16,6 @@ app.use("/doctor", doctorsRoute);
 app.use("/dosage", dosageRoutes);
 app.use("/medicalPlan", medicalPlanRoutes);
 
-app.listen(process.env.PORT, () => {
+app.listen(5000, () => {
   console.log("Server running");
 });

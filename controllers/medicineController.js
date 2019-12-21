@@ -45,7 +45,7 @@ module.exports = {
           const AdministrationTypeList = new Array(AdministrationTypeModel);
           const dataSet = results[0];
 
-          Medicine.Medicine_ID = dataSet[0].Medicine_ID;
+          Medicine.MedicineID = dataSet[0].MedicineID;
           Medicine.Name = dataSet[0].MedicineName;
           Medicine.Purpose = dataSet[0].Purpose;
           Medicine.Description = dataSet[0].Description;
@@ -55,9 +55,8 @@ module.exports = {
             var MedicalPlanDosageForCovertItem = new MedicalPlanDosageForCovertModel();
             var AdministrationTypeItem = new AdministrationTypeModel();
 
-            MedicalPlanDosageForCovertItem.Dosage_ID = element.DosageID;
-            MedicalPlanDosageForCovertItem.Amount = element.DosageAmount;
-            MedicalPlanDosageForCovertItem.MedicalPlanCovert_ID =
+            MedicalPlanDosageForCovertItem.DosageAmount = element.DosageAmount;
+            MedicalPlanDosageForCovertItem.MedicalPlanCovertID =
               element.MedicalPlanCovertID;
             MedicalPlanDosageForCovertItem.MedicalPlan = element.MedicalPlan;
             MedicalPlanDosageForCovertItem.Covert = element.Covert;
@@ -82,11 +81,10 @@ module.exports = {
           var result = {
             MedicineInformation: Medicine,
             MedicalPlanDosage: MedicalPlanDosageForCovertList.map(item => ({
-              Dosage_ID: item.Dosage_ID,
-              Amount: item.Amount,
-              MedicalPlanCovert_ID: item.MedicalPlanCovert_ID,
+              MedicalPlanCovert_ID: item.MedicalPlanCovertID,
               MedicalPlan: item.MedicalPlan,
-              Covert: item.Covert
+              Covert: item.Covert,
+              DosageAmount: item.DosageAmount
             })),
             AdministrationType: AdministrationTypeList
           };
@@ -99,7 +97,7 @@ module.exports = {
     }
   },
 
-  getMedicinesSearch: function(req, res) {
+  medicineSearch: function(req, res) {
     try {
       const sortCriteriasEnum = {
         med: "Medicine_Name",
@@ -121,8 +119,8 @@ module.exports = {
           results[0].forEach((element, index, arr) => {
             medicineOptionsModel[index] = element;
           });
-          console.log(req.query);
-          res.json({ medicineOptionsModel });
+          
+          res.json({ Medicines: medicineOptionsModel });
         }
       });
     } catch (error) {
