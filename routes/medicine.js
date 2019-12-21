@@ -21,7 +21,7 @@ router.get("/getMedicines/", medicineController.getMedicines);
 
 // Searches for the medicine based on filters
 router.get(
-  "/medicineSearch/:plan?/:dose?/:med?/:cat?",
+  "/medicineSearch/:plan?/:dose?/:sort?",
   medicineController.medicineSearch
 );
 
