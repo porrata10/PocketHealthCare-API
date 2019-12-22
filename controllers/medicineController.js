@@ -16,7 +16,7 @@ function verifyString(value = "") {
 module.exports = {
   getMedicines: function(req, res) {
     try {
-      let sql = `SELECT Name, Description FROM Medicine`;
+      let sql = `SELECT * FROM Medicine`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
