@@ -4,7 +4,7 @@ const db = require('../db');
 
 class Doctor extends Model {}
 Doctor.init({
-  DoctorsID: {type:DataTypes.INTEGER, primaryKey: true},
+  DoctorID: {type:DataTypes.INTEGER, primaryKey: true},
   Name: DataTypes.STRING,
   Specialty: DataTypes.STRING,
   Latitude: DataTypes.DOUBLE,

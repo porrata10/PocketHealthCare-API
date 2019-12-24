@@ -108,7 +108,6 @@ module.exports = {
 
       const sortBy = sortCriteriasEnum[verifyString(sort).toLowerCase()];
 
-      let medicineOptionsModel = new Array(MedicineModel);
       let sql = `CALL MedicineSearch("${verifyString(plan)}", "${verifyString(dose)}", 
                                      "${verifyString(sortBy)}" )`;
 
@@ -116,7 +115,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-          res.json(results[0]);
+          res.json(results);
         }
       });
     } catch (error) {

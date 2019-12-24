@@ -79,7 +79,6 @@ module.exports = {
     try {
       const { specialty = "", city = "", plan = "" } = req.query;
 
-      let doctorsSearchModel = new Array(Doctor);
       let sql = `CALL DoctorsSearch("${verifyString(specialty)}", "${verifyString(city)}", 
                                     "${verifyString(plan)}");`;
 
