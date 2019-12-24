@@ -116,11 +116,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-          results[0].forEach((element, index, arr) => {
-            medicineOptionsModel[index] = element;
-          });
-          
-          res.json({ Medicines: medicineOptionsModel });
+          res.json(results[0]);
         }
       });
     } catch (error) {
