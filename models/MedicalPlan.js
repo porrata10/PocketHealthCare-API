@@ -4,7 +4,7 @@ const db = require('../db');
 
 class MedicalPlan extends Model {}
 MedicalPlan.init({
-  MedicalPlan_ID: {type:DataTypes.INTEGER, primaryKey: true},
+  MedicalPlanID: {type:DataTypes.INTEGER, primaryKey: true},
   Name: DataTypes.STRING,
 
 }, { sequelize: db.sequelize, modelName: 'MedicalPlan' });

@@ -10,7 +10,7 @@ Doctor.init({
   Latitude: DataTypes.DOUBLE,
   Longitude: DataTypes.DOUBLE,
   Address1: DataTypes.STRING,
-  Addresss2: DataTypes.STRING,
+  Address2: DataTypes.STRING,
   City: DataTypes.STRING,
   State: DataTypes.STRING,
   Country: DataTypes.STRING,
