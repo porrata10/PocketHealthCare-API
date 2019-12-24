@@ -87,10 +87,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-          results[0].forEach((element, index, arr) => {
-            doctorsSearchModel[index] = element;
-          });
-          res.json({ doctorsSearchModel });
+          res.json(results[0]);
         }
       });
     } catch (error) {
