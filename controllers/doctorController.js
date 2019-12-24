@@ -15,13 +15,7 @@ function verifyString(value = "") {
 module.exports = {
   getDoctors: function(req, res) {
     try {
-      let sql = `SELECT 
-                 DoctorsID,
-                 Name,
-                 Specialty,
-                 City,
-                 State,
-                 Country FROM Doctors`;
+      let sql = `SELECT * FROM Doctors`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
@@ -57,7 +51,7 @@ module.exports = {
           DoctorItem.City = dataSet[0].City;
           DoctorItem.State = dataSet[0].State;
           DoctorItem.Country = dataSet[0].Country;
-          DoctorItem.PostalCode = dataSet[0].PostalCode;
+          DoctorItem.ZipCode = dataSet[0].PostalCode;
 
           dataSet.forEach((element, index, arr) => {
             var MedicalPlanItem = new MedicalPlan();

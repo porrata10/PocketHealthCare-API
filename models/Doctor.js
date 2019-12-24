@@ -14,7 +14,7 @@ Doctor.init({
   City: DataTypes.STRING,
   State: DataTypes.STRING,
   Country: DataTypes.STRING,
-  PostalCode: DataTypes.STRING,
+  ZipCode: DataTypes.STRING,
 
 }, { sequelize: db.sequelize, modelName: 'Doctor' });
 
