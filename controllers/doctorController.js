@@ -51,7 +51,7 @@ module.exports = {
           DoctorItem.City = dataSet[0].City;
           DoctorItem.State = dataSet[0].State;
           DoctorItem.Country = dataSet[0].Country;
-          DoctorItem.ZipCode = dataSet[0].PostalCode;
+          DoctorItem.ZipCode = dataSet[0].ZipCode;
 
           dataSet.forEach((element, index, arr) => {
             var MedicalPlanItem = new MedicalPlan();
