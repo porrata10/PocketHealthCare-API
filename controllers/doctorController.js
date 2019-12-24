@@ -57,7 +57,7 @@ module.exports = {
             var MedicalPlanItem = new MedicalPlan();
 
             MedicalPlanItem.MedicalPlanID = element.MedicalPlanID;
-            MedicalPlanItem.Name = element.MedicalPlanName;
+            MedicalPlanItem.Name = element.Name;
 
             MedicalPlans[index] = MedicalPlanItem;
           });
