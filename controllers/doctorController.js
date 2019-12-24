@@ -56,7 +56,7 @@ module.exports = {
           dataSet.forEach((element, index, arr) => {
             var MedicalPlanItem = new MedicalPlan();
 
-            MedicalPlanItem.MedicalPlan_ID = element.MedicalPlanID;
+            MedicalPlanItem.MedicalPlanID = element.MedicalPlanID;
             MedicalPlanItem.Name = element.MedicalPlanName;
 
             MedicalPlans[index] = MedicalPlanItem;
