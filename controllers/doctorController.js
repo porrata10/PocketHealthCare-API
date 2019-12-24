@@ -47,7 +47,7 @@ module.exports = {
           var DoctorItem = new Doctor();
           var MedicalPlans = new Array(MedicalPlan);
 
-          DoctorItem.Doctors_ID = dataSet[0].DoctorID;
+          DoctorItem.DoctorsID = dataSet[0].DoctorID;
           DoctorItem.Name = dataSet[0].DoctorsName;
           DoctorItem.Specialty = dataSet[0].Specialty;
           DoctorItem.Latitude = dataSet[0].Latitude;
