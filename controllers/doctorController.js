@@ -16,30 +16,13 @@ module.exports = {
   getDoctors: function(req, res) {
     try {
 
-      let doctorList = new Array(Doctor);
       let sql = `SELECT * FROM Doctors`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
           throw err;
         } else {
-
-          results.forEach((element, index, array)=>{
-
-            doctorList[index].DoctorID = element.DoctorsID;
-            doctorList[index].Name = element.Name;
-            doctorList[index].Specialty = element.Specialty;
-            doctorList[index].Latitude = element.Latitude;
-            doctorList[index].Longitude = element.Longitude;
-            doctorList[index].Address1 = element.Address1;
-            doctorList[index].Address2 = element.Address2;
-            doctorList[index].City = element.City;
-            doctorList[index].State = element.State;
-            doctorList[index].Country = element.Country;
-            doctorList[index].ZipCode = element.ZipCode;
-          });
-
-          res.json(doctorList);
+          res.json(results);
         }
       });
     } catch (error) {
