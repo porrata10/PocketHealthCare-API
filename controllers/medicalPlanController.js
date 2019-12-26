@@ -4,6 +4,8 @@ const MedicalPlanModel = require("../models/MedicalPlan");
 module.exports = {
   getMedicalPlanOptions: function(req, res) {
     try {
+
+      let medicalPlans = new Array(MedicalPlanModel)
       let sql = `SELECT DISTINCT *
                  FROM MedicalPlans 
                  ORDER BY Name ASC`;
@@ -12,7 +14,11 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-          res.json(results);
+results.forEach(element, index, array => {
+  medicalPlans[index] = element;
+});
+
+          res.json(medicalPlans);
         }
       });
     } catch (error) {
