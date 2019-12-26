@@ -16,7 +16,7 @@ module.exports = {
   getDoctors: function(req, res) {
     try {
 
-      let sql = `SELECT * FROM Doctors`;
+      let sql = `SELECT * FROM Doctors;`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
@@ -32,7 +32,7 @@ module.exports = {
 
   getDoctorInformation: function(req, res) {
     try {
-      let sql = `CALL GetDoctorsInformation(${req.params.id})`;
+      let sql = `CALL GetDoctorsInformation(${req.params.id});`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
@@ -97,7 +97,7 @@ module.exports = {
 
   getDoctorsCityOptions: function (req, res){
     try {
-      let sql = `SELECT DISTINCT City FROM Doctors`;
+      let sql = `SELECT DISTINCT City as Name FROM Doctors;`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
@@ -113,7 +113,7 @@ module.exports = {
 
   getDoctorsSpecialtyOptions: function(req, res){
     try {
-      let sql = `SELECT DISTINCT Specialty FROM Doctors`;
+      let sql = `SELECT DISTINCT Specialty as Name FROM Doctors;`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
