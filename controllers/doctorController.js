@@ -92,5 +92,37 @@ module.exports = {
     } catch (error) {
       res.json({ error: error });
     }
-  }
+  },
+
+  getDoctorsCityOptions: function (req, res){
+    try {
+      let sql = `SELECT DISTINCT City FROM Doctors`;
+
+      db.connection.query(sql, (err, results) => {
+        if (err) {
+          throw err;
+        } else {
+          res.json(results);
+        }
+      });
+    } catch (error) {
+      res.json({ message: error });
+    }
+  },
+
+  getDoctorsSpecialtyOptions: function(req, res){
+    try {
+      let sql = `SELECT DISTINCT Specialty FROM Doctors`;
+
+      db.connection.query(sql, (err, results) => {
+        if (err) {
+          throw err;
+        } else {
+          res.json(results);
+        }
+      });
+    } catch (error) {
+      res.json({ message: error });
+    }
+  },
 };

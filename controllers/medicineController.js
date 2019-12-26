@@ -99,6 +99,7 @@ module.exports = {
 
   medicineSearch: function(req, res) {
     try {
+      
       const sortCriteriasEnum = {
         med: "Medicine_Name",
         cat: "MedicineCategory"
