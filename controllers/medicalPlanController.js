@@ -14,7 +14,7 @@ module.exports = {
         if (error) {
           throw error;
         } else {
-results.forEach(element, index, array => {
+results.forEach((element, index, array) => {
   medicalPlans[index] = element;
 });
 
