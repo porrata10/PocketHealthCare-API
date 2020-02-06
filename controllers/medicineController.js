@@ -16,7 +16,7 @@ function verifyString(value = "") {
 module.exports = {
   getMedicines: function(req, res) {
     try {
-      let sql = `SELECT * FROM Medicine`;
+      let sql = `SELECT * FROM Medicine ORDER BY Name ASC`;
 
       db.connection.query(sql, (err, results) => {
         if (err) {
@@ -102,7 +102,8 @@ module.exports = {
       
       const sortCriteriasEnum = {
         med: "Medicine_Name",
-        cat: "MedicineCategory"
+        cat: "MedicineCategory",
+        pur: "MedicinePurpose"
       };
 
       const { plan = "", dose = "", med = "", cat = "", sort = "" } = req.query;

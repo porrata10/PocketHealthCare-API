@@ -4,7 +4,7 @@ const db = require('../db');
 
 class Dosage extends Model {}
 Dosage.init({
-  Amount: DataTypes.DOUBLE,
+  Amount: DataTypes.STRING,
 
 }, { sequelize: db.sequelize, modelName: 'Dosage' });
 
